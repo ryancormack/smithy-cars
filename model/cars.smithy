@@ -1,11 +1,8 @@
 $version: "2"
 namespace ryan.vehicle
 
-use aws.protocols#restJson1
-
 /// Provides car valuations.
 /// Triple slash comments attach documentation to shapes.
-@restJson1
 service Vehicle {
     version: "2006-03-01"
     resources: [
@@ -25,7 +22,8 @@ operation GetCar {
     output: CarInformation
 
     errors: [
-        NoSuchResource
+        NoSuchResource,
+        ValidationException
     ]
 }
 
@@ -51,4 +49,10 @@ structure CarInformation {
 structure NoSuchResource {
     @required
     resourceType: String
+}
+
+@error("client")
+structure ValidationException {
+    @required
+    message: String
 }

@@ -1,2 +1,4 @@
 build/
 redoc-static.html
+
+node_modules/
