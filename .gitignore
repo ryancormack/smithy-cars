@@ -1,4 +1,7 @@
 build/
+result
+result/
+.direnv/
 redoc-static.html
 
 node_modules/

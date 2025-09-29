@@ -1,4 +1,5 @@
 $version: "2"
+
 namespace ryan.vehicle
 
 /// Provides car valuations.
@@ -11,7 +12,9 @@ service Vehicle {
 }
 
 resource Car {
-    identifiers: { vrm: Vrm }
+    identifiers: {
+        vrm: Vrm
+    }
     read: GetCar
 }
 
@@ -20,9 +23,8 @@ resource Car {
 operation GetCar {
     input: GetCarInput
     output: CarInformation
-
     errors: [
-        NoSuchResource,
+        NoSuchResource
         ValidationException
     ]
 }
@@ -39,9 +41,12 @@ string Vrm
 
 structure CarInformation {
     @required
-    make: String,
-    model: String,
-    year: Integer,
+    make: String
+
+    model: String
+
+    year: Integer
+
     price: BigDecimal
 }
 
